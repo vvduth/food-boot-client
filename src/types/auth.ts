@@ -4,7 +4,8 @@ export type RegistrationData = {
     address: string;
     email: string;
     password: string;
-    roles: string[];
+    confirmPassword?: string;
+    roles?: string[];
 };
 
 export type LoginData = {
