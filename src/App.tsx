@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
@@ -8,9 +5,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import RegisterPage from './components/auth/RegisterPage'
 import LoginPage from './components/auth/LoginPage'
 import HomePage from './components/home_menu/HomePage'
+import CaterogyPage from './components/home_menu/CaterogyPage'
+import MenuPage from './components/home_menu/MenuPage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <BrowserRouter>
@@ -22,8 +21,10 @@ function App() {
           <Route path='/contact' element={<Contact />} /> */}
           <Route path='/login' element={<LoginPage  />} />
           <Route path='/home' element={<HomePage />} />
+          <Route path='/categories' element={<CaterogyPage />} />
           {/* Register page */}
           <Route path='/register' element={<RegisterPage />} />
+          <Route path='/menu' element={<MenuPage />} />
         </Routes>
       </div>
       <Footer />

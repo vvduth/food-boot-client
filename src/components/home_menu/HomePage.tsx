@@ -25,7 +25,7 @@ const HomePage = () => {
       }
     };
     fetchCategories();
-  }, []);
+  }, [showError]);
   const menuCategoryClick = (categoryId: string) => {
     navigate(`/menu?category=${categoryId}`);
   };
@@ -38,7 +38,7 @@ const HomePage = () => {
           <h1 className="home-hero-title">
             Welcome to Our Food Delivery Service
           </h1>
-          <p className="home-explore-button">
+          <p className="home-hero-subtitle">
             Explore our delicious menu and order your favorite dishes online!
           </p>
           <button

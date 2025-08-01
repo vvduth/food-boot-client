@@ -25,7 +25,7 @@ const Navbar = () => {
       <div className="desktop-nav">
         <Link to={"/home"}>Home</Link>
         <Link to={"/menu"}>Menu</Link>
-        <Link to={"/category"}>Category</Link>
+        <Link to={"/categories"}>Category</Link>
         {isAuthenticated ? (
           <>
             <Link to={"/profile"} className="nav-link">

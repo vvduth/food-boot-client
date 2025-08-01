@@ -1803,7 +1803,7 @@ nav:hover {
 }
 
 .menu-item-price::before {
-    content: '$';
+    content: '€';
     font-size: 1rem;
     margin-right: 2px;
     vertical-align: top;

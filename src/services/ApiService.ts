@@ -94,10 +94,36 @@ export default class ApiService {
         return res.data;
     }
 
+    /** menu management section */
     static async getAllCategories() {
         const res = await axios.get(`${this.BASE_URL}/categories/all`, {
             headers: this.getHeader()
         });
         return res.data;
     }
+
+      static async getAllMenuByCategoryId(categoryId: string) {
+        const resp = await axios.get(`${this.BASE_URL}/menus`, {
+            params: {
+                categoryId: categoryId
+            }
+        });
+        return resp.data;
+    }
+
+     static async getAllMenus() {
+        const resp = await axios.get(`${this.BASE_URL}/menus`, {});
+        return resp.data;
+    }
+
+     static async searchMenu(search: string) {
+        const resp = await axios.get(`${this.BASE_URL}/menus`, {
+            params: {
+                search: search
+            }
+        });
+        return resp.data;
+    }
+
+
 }
