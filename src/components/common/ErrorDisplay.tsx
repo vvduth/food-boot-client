@@ -36,12 +36,12 @@ export const useError = () => {
     }
 
     return {
-        ErrorDisplay: () => {
+        ErrorDisplay: () => 
             <ErrorDisplay
                 message={errorMessage || ''}
                 onDismiss={dismissError}
             />
-        },
+        ,
         showError,
         dismissError
     }

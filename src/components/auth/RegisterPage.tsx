@@ -71,6 +71,7 @@ const RegisterPage = () => {
 
   return (
     <div className="register-page-food">
+      <ErrorDisplay />
       <div className="register-card-food">
         <div className="register-header-food">
           <h2 className="register-title-food">Register</h2>
