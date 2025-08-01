@@ -29,8 +29,9 @@ const LoginPage = () => {
       const response = await ApiService.loginUser(formData);
       if (response.statusCode === 200) {
         // Handle successful login, e.g., redirect to dashboard
+        
         ApiService.saveToken(response.data.token);
-        ApiService.saveRole(response.data.role);
+        ApiService.saveRole(response.data.roles);
         navigate(redirectPath, { replace: true });
       } else {
         showError(response.message || "Login failed");

@@ -7,6 +7,7 @@ import Footer from './components/common/Footer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import RegisterPage from './components/auth/RegisterPage'
 import LoginPage from './components/auth/LoginPage'
+import HomePage from './components/home_menu/HomePage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} /> */}
           <Route path='/login' element={<LoginPage  />} />
+          <Route path='/home' element={<HomePage />} />
           {/* Register page */}
           <Route path='/register' element={<RegisterPage />} />
         </Routes>

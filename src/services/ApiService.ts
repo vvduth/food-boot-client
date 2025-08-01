@@ -14,6 +14,7 @@ export default class ApiService {
 
     // save role
     static saveRole(roles: string[]) {
+        console.log("Saving roles:", roles);
         localStorage.setItem('roles', JSON.stringify(roles));
     }
 
@@ -88,6 +89,13 @@ export default class ApiService {
 
     static async deactivateProfile() {
         const res = await axios.delete(`${this.BASE_URL}/users/account`, {
+            headers: this.getHeader()
+        });
+        return res.data;
+    }
+
+    static async getAllCategories() {
+        const res = await axios.get(`${this.BASE_URL}/categories/all`, {
             headers: this.getHeader()
         });
         return res.data;
