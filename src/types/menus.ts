@@ -3,7 +3,7 @@
 import type { Category } from "./categories";
 
 export interface MenuItem {
-    id: number;
+    id: string;
     name: string;
     description: string;
     price: number;
@@ -14,12 +14,13 @@ export interface MenuItem {
 
 export interface Review {
     id: number;
-    rating: number;
-    comment: string;
-    userId: number;
-    menuItemId: number;
-    createdAt: string;
-    updatedAt: string;
+    menuId: number;
+    orderId: number;
+    userName: string;
+    rating: number; // 1-10 scale
+    comment: string; // max 500 characters
+    menuName: string;
+    createdAt: string; // ISO date string from LocalDateTime
 }
 
 

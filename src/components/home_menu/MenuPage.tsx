@@ -20,7 +20,7 @@ const MenuPage = () => {
         if (categoryId) {
           response = await ApiService.getAllMenuByCategoryId(categoryId);
         } else {
-          response = await ApiService.getAllCategories();
+          response = await ApiService.getAllMenus();
         }
 
         if (response.statusCode === 200) {
@@ -47,13 +47,14 @@ const MenuPage = () => {
       showError(error.response?.data?.message || "Failed to search menus");
     }
 
-    const filteredMenus = menus.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    
   };
   const navigateToMenuDetails = (menuId: string | number) => {
     navigate(`/menu/${menuId}`);
   };
+  const filteredMenus = menus.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   return (
     <>
       <div className="menu-page">
@@ -74,7 +75,7 @@ const MenuPage = () => {
         </div>
 
         <div className="menu-grid">
-          {menus.map((menu) => (
+          {filteredMenus.map((menu) => (
             <div
               key={menu.id}
               className="menu-item-card"
