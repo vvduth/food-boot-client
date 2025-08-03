@@ -75,7 +75,7 @@ export default class ApiService {
 
   /** user profile management section */
   static async myProfile() {
-    const res = await axios.get(`${this.BASE_URL}/users/account`, {
+    const res = await axios.get(`${this.BASE_URL}/users/me`, {
       headers: this.getHeader(),
     });
     return res.data;
@@ -158,5 +158,7 @@ export default class ApiService {
         });
         return resp.data;
     }
+
+    
 
 }
