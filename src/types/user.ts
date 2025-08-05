@@ -64,7 +64,7 @@ export interface UserProfile {
     email: string;
     phoneNumber?: string;
     profileUrl?: string;
-    isActive: boolean;
+    active: boolean;
     address?: string;
     roles: RoleDTO[];
 }

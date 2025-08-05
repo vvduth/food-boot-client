@@ -92,7 +92,7 @@ export default class ApiService {
   }
 
   static async deactivateProfile() {
-    const res = await axios.delete(`${this.BASE_URL}/users/account`, {
+    const res = await axios.delete(`${this.BASE_URL}/users/deactivate`, {
       headers: this.getHeader(),
     });
     return res.data;
@@ -142,23 +142,63 @@ export default class ApiService {
     return resp.data;
   }
 
+  /* CART SECTION */
+  static async addItemToCart(cartDTO: AddToCartRequest) {
+    const resp = await axios.post(`${this.BASE_URL}/cart/items`, cartDTO, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async incrementItem(menuId: string) {
+    const resp = await axios.put(
+      `${this.BASE_URL}/cart/items/increment/${menuId}`,
+      null,
+      {
+        headers: this.getHeader(),
+      }
+    );
+    return resp.data;
+  }
+
+  static async getAllOrders(orderStatus: string, page = 0, size = 200) {
+    let url = `${this.BASE_URL}/orders/all`;
+
+    if (orderStatus) {
+      url = `${this.BASE_URL}/orders/all?orderStatus=${orderStatus}&page=${page}&size=${size}`;
+    }
+
+    const resp = await axios.get(url, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+  static async getMyOrders() {
+    const resp = await axios.get(`${this.BASE_URL}/orders/me`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+  static async getOrderById(id: string) {
+          const resp = await axios.get(`${this.BASE_URL}/orders/${id}`, {
+              headers: this.getHeader()
+          })
+          return resp.data;
+      }
   
-    /* CART SECTION */
-    static async addItemToCart(cartDTO: AddToCartRequest) {
-
-        const resp = await axios.post(`${this.BASE_URL}/cart/items`, cartDTO, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
-
-    static async incrementItem(menuId: string) {
-        const resp = await axios.put(`${this.BASE_URL}/cart/items/increment/${menuId}`, null, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
-
-    
-
+  
+      static async countTotalActiveCustomers() {
+          const resp = await axios.get(`${this.BASE_URL}/orders/unique-customers`, {
+              headers: this.getHeader()
+          })
+          return resp.data;
+      }
+  
+  
+      static async getOrderItemById(id: string) {
+          const resp = await axios.get(`${this.BASE_URL}/orders/order-item/${id}`, {
+              headers: this.getHeader()
+          })
+          return resp.data;
+      }
 }
