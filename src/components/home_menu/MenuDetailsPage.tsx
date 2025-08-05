@@ -24,7 +24,9 @@ const MenuDetailsPage = () => {
           const ratingResponse = await ApiService.getMenuAverageOverallReview(
             id!
           );
+          
           if (ratingResponse.statusCode === 200) {
+            console.log("Rating Response:", ratingResponse);
             setAverageRating(ratingResponse.data);
           }
         }

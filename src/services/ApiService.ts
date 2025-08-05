@@ -164,6 +164,33 @@ export default class ApiService {
     return resp.data;
   }
 
+  static async decrementItem(menuId: string) {
+    const resp = await axios.put(
+      `${this.BASE_URL}/cart/items/decrement/${menuId}`,
+      null,
+      {
+        headers: this.getHeader(),
+      }
+    );
+    return resp.data;
+  }
+
+  static async getCart() {
+    const resp = await axios.get(`${this.BASE_URL}/cart`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+  static async removeItem(cartItemId: string) {
+    const resp = await axios.delete(
+      `${this.BASE_URL}/cart/items/${cartItemId}`,
+      {
+        headers: this.getHeader(),
+      }
+    );
+    return resp.data;
+  }
+
   static async getAllOrders(orderStatus: string, page = 0, size = 200) {
     let url = `${this.BASE_URL}/orders/all`;
 
