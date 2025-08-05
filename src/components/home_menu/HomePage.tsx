@@ -25,7 +25,7 @@ const HomePage = () => {
       }
     };
     fetchCategories();
-  }, [showError]);
+  }, []);
   const menuCategoryClick = (categoryId: string) => {
     navigate(`/menu?category=${categoryId}`);
   };

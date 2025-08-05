@@ -60,7 +60,7 @@ const OrderHistoryPage = () => {
     };
     
     fetchOrderHistory();
-  }, [showError]); // Added showError to dependency array
+  }, []); 
 
   // Format date helper function
   const formatDate = (dateString: string) => {

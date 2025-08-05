@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { LoginData, RegistrationData } from "../types/auth";
 import type { AddToCartRequest } from "../types/cart";
+import type { CreateReviewRequest } from "../types/review";
 
 export default class ApiService {
   static BASE_URL = "http://localhost:8090/api/v1";
@@ -182,25 +183,32 @@ export default class ApiService {
     return resp.data;
   }
   static async getOrderById(id: string) {
-          const resp = await axios.get(`${this.BASE_URL}/orders/${id}`, {
-              headers: this.getHeader()
-          })
-          return resp.data;
-      }
-  
-  
-      static async countTotalActiveCustomers() {
-          const resp = await axios.get(`${this.BASE_URL}/orders/unique-customers`, {
-              headers: this.getHeader()
-          })
-          return resp.data;
-      }
-  
-  
-      static async getOrderItemById(id: string) {
-          const resp = await axios.get(`${this.BASE_URL}/orders/order-item/${id}`, {
-              headers: this.getHeader()
-          })
-          return resp.data;
-      }
+    const resp = await axios.get(`${this.BASE_URL}/orders/${id}`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async countTotalActiveCustomers() {
+    const resp = await axios.get(`${this.BASE_URL}/orders/unique-customers`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async getOrderItemById(id: string) {
+    const resp = await axios.get(`${this.BASE_URL}/orders/order-item/${id}`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  /**REVIEW SECTION */
+
+  static async createReview(body: CreateReviewRequest) {
+    const resp = await axios.post(`${this.BASE_URL}/reviews`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
 }
