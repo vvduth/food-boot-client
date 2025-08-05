@@ -10,22 +10,29 @@ const CaterogyPage = () => {
   const { ErrorDisplay, showError } = useError();
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await ApiService.getAllCategories();
-        if (response.statusCode === 200) {
-          setCategories(response.data);
-        } else {
-          showError(response.message || "Failed to fetch categories");
-        }
-      } catch (error: any) {
-        showError(
-          error.response?.data?.message || "Failed to fetch categories"
-        );
-      }
-    };
-    fetchCategories();
-  }, []);
+  
+          const fetchCategories = async () => {
+              try {
+                  const response = await ApiService.getAllCategories();
+                  if (response.statusCode === 200) {
+                      setCategories(response.data)
+                  } else {
+                      showError(response.message);
+                  }
+  
+              } catch (error:any) {
+                  showError(error.response?.data?.message || error.message);
+  
+              }
+          };
+  
+          fetchCategories();
+      }, []);
+
+  const handleCategoryClick = (categoryId: string) => {
+    navigate(`/menu?category=${categoryId}`);
+  };
+
   return (
     <div className="categories-page">
       <ErrorDisplay />
@@ -35,7 +42,7 @@ const CaterogyPage = () => {
           <div
             key={category.id}
             className="home-category-card"
-            onClick={() => navigate(`/menu?category=${category.id}`)}
+            onClick={() => handleCategoryClick(category.id)}
           >
             <h2 className="category-name">{category.name}</h2>
             <p className="category-description">{category.description}</p>

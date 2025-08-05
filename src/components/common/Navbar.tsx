@@ -13,6 +13,7 @@ const Navbar = () => {
     const isLogout = window.confirm("Are you sure you want to logout?");
     if (isLogout) {
       ApiService.logout();
+      navigate("/login", { replace: true });
     }
   };
   return (
