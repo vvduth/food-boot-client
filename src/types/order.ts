@@ -9,32 +9,32 @@ import type { UserDto, UserProfile } from "./user";
  * Order status enumeration matching backend OrderStatus enum
  */
 export enum OrderStatus {
-   INITIALIZED,
-    CONFIRMED,
-    ON_THE_WAY,
-    DELIVERED,
-    CANCELLED,
-    FAILED,
+   INITIALIZED = "INITIALIZED",
+    CONFIRMED = "CONFIRMED",
+    ON_THE_WAY = "ON_THE_WAY",
+    DELIVERED = "DELIVERED",
+    CANCELLED = "CANCELLED",
+    FAILED = "FAILED",
 }
 
 /**
  * Payment status enumeration matching backend PaymentStatus enum
  */
 export enum PaymentStatus {
-    PENDING,
-    PROCESSING,
-    COMPLETED,
-    FAILED,
-    REFUNDED,
-    CANCELLED
+    PENDING = "PENDING",
+    PROCESSING = "PROCESSING",
+    COMPLETED = "COMPLETED",
+    FAILED = "FAILED",
+    REFUNDED = "REFUNDED",
+    CANCELLED = "CANCELLED"
 }
 
 export enum PaymentGateway {
-    STRIPE,
-    PAYPAL,
-    FLUTTERWAVE,
-    PAYSTACK,
-    RAZORPAY
+    STRIPE = "STRIPE",
+    PAYPAL = "PAYPAL",
+    FLUTTERWAVE = "FLUTTERWAVE",
+    PAYSTACK = "PAYSTACK",
+    RAZORPAY = "RAZORPAY"
 }
 
 /**
@@ -60,6 +60,13 @@ export interface OrderItemDTO {
     /** Calculated subtotal (quantity * pricePerUnit) */
     subTotal: number;
 }
+
+export interface EnhancedOrderItemDTO extends OrderItemDTO {
+    /** Indicates if the user has left a review for this item */
+    hasReview?: boolean;
+}
+
+
 
 /**
  * Main order DTO matching backend OrderDTO
@@ -88,6 +95,11 @@ export interface OrderDTO {
     orderItems: OrderItemDTO[];
 }
 
+export interface EnhancedOrderDTO extends OrderDTO {
+    
+    orderItems: EnhancedOrderItemDTO[];
+}
+
 /**
  * Helper type for creating new orders (without server-generated fields)
  */
@@ -104,3 +116,4 @@ export interface CreateOrderRequest {
 export interface UpdateOrderStatusRequest {
     orderStatus: OrderStatus;
 }
+

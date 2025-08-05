@@ -36,6 +36,8 @@ export default class ApiService {
   }
 
   static isCustomer() {
+    console.log("Checking if user is a customer");
+    console.log("User roles:", this.getRoles());
     return this.hadRole("CUSTOMER");
   }
 
