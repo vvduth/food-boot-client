@@ -1,42 +1,248 @@
 /* Import Google Fonts for better typography */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* CSS Custom Properties for consistent theming */
+/* CSS Custom Properties for consistent theming - Enhanced Restaurant-Quality Design System */
 :root {
+  /* Primary Color Palette - Sophisticated Restaurant Tones */
   --primary-orange: #ff6600;
   --primary-orange-light: #ff8533;
   --primary-orange-dark: #e55d00;
-  --primary-orange-gradient: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+  --primary-orange-gradient: linear-gradient(135deg, #ff6600 0%, #ff8533 50%, #ffa726 100%);
+  --primary-orange-glow: 0 0 30px rgba(255, 102, 0, 0.4);
   
   --secondary-red: #e63946;
   --secondary-red-light: #ff6b6b;
   --secondary-red-dark: #c1121f;
+  --secondary-red-gradient: linear-gradient(135deg, #e63946 0%, #ff6b6b 50%, #ff8e8e 100%);
   
+  /* Advanced Color Palette - Premium Restaurant Feel */
+  --accent-gold: #ffd700;
+  --accent-gold-light: #ffe55c;
+  --accent-gold-dark: #b8860b;
+  --accent-gold-gradient: linear-gradient(135deg, #ffd700 0%, #ffe55c 50%, #fff8dc 100%);
+  
+  --accent-teal: #00bcd4;
+  --accent-purple: #9c27b0;
+  --accent-green: #4caf50;
+  --accent-pink: #e91e63;
+  
+  /* Premium Background Gradients - Restaurant Inspired */
+  --bg-gradient-sunset: linear-gradient(135deg, #ff9a56 0%, #ff6b6b 25%, #ffa726 50%, #4ecdc4 100%);
+  --bg-gradient-royal: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --bg-gradient-warm: linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #ffeaa7 50%, #d299c2 100%);
+  --bg-gradient-elegant: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 75%, #667eea 100%);
+  --bg-gradient-premium: linear-gradient(135deg, #141e30 0%, #243b55 25%, #2c5364 50%, #4b79a1 100%);
+  --bg-gradient-gold-luxury: linear-gradient(135deg, #ffecd2 0%, #fcb69f 25%, #ff9a56 50%, #ffd89b 100%);
+  
+  /* Glass Morphism & Advanced Visual Effects */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --backdrop-blur: blur(20px);
+  --shimmer-effect: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  
+  /* Typography - Enhanced with Restaurant Elegance */
   --text-primary: #2c3e50;
   --text-secondary: #5a6c7d;
   --text-light: #8b9dc3;
+  --text-accent: var(--primary-orange);
+  --text-gold: var(--accent-gold-dark);
+  --text-elegant: #34495e;
   
+  /* Background Colors - Enhanced */
   --background-primary: #ffffff;
   --background-secondary: #f8fafc;
   --background-tertiary: #f1f5f9;
+  --background-overlay: rgba(0, 0, 0, 0.5);
+  --background-card: rgba(255, 255, 255, 0.95);
+  --background-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   
+  /* Border Colors - Premium */
   --border-light: #e2e8f0;
   --border-medium: #cbd5e1;
+  --border-accent: var(--primary-orange-light);
+  --border-gold: var(--accent-gold);
   
+  /* Advanced Shadows & Depth */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --shadow-2xl: 0 30px 60px rgba(0, 0, 0, 0.2);
+  --shadow-colored: 0 10px 30px rgba(255, 102, 0, 0.3);
+  --shadow-glow: 0 0 40px rgba(255, 102, 0, 0.4);
+  --shadow-dramatic: 0 35px 80px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   
+  /* Border Radius - Enhanced */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+  --radius-full: 50%;
   
+  /* Advanced Transitions & Animation Curves */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-premium: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  /* Font Weights - Restaurant Typography */
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  /* Spacing System - Restaurant Layout */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  
+  /* Animation Duration Variables */
+  --anim-duration-fast: 0.15s;
+  --anim-duration-normal: 0.3s;
+  --anim-duration-slow: 0.6s;
+  --anim-duration-extra-slow: 1.2s;
 }
 
+/* Advanced Keyframe Animations for Restaurant-Quality UX */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -8px, 0);
+  }
+  70% {
+    transform: translate3d(0, -4px, 0);
+  }
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--primary-orange);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--primary-orange), 0 0 30px var(--primary-orange);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes card-hover {
+  0% {
+    transform: translateY(0) rotateX(0deg);
+    box-shadow: var(--shadow-md);
+  }
+  100% {
+    transform: translateY(-5px) rotateX(2deg);
+    box-shadow: var(--shadow-dramatic);
+  }
+}
+
+/* Enhanced Body Styling with Restaurant Sophistication */
 body {
   margin: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -44,16 +250,41 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-secondary);
+  background: var(--background-secondary);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(230, 57, 70, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
+  background-attachment: fixed;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Global pseudo-element for subtle background texture */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6600' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.4;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background: rgba(255, 102, 0, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.875em;
 }
 
 
@@ -61,68 +292,105 @@ code {
 
 
 
-/** NAVBAR STYLING - Enhanced for better UX */
+/** NAVBAR STYLING - Enhanced Restaurant-Quality Navigation with Creative Flair */
 nav {
     background: var(--primary-orange-gradient);
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
     color: white;
-    padding: 1rem 2rem;
+    padding: var(--space-4) var(--space-8);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(255, 102, 0, 0.3);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    backdrop-filter: var(--backdrop-blur);
+    transition: var(--transition-premium);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Premium glass morphism overlay */
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    transition: var(--transition);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Shimmer effect on nav hover */
+nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--shimmer-effect);
+    transition: left 0.8s ease;
+    pointer-events: none;
+}
+
+nav:hover::after {
+    left: 100%;
 }
 
 nav:hover {
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-2xl), var(--primary-orange-glow);
+    transform: translateY(-2px);
 }
 
+/* Enhanced Logo with Restaurant Elegance */
 .logo {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-black);
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    background: linear-gradient(45deg, #ffffff, #ffe55c, #ffffff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+}
+
+.logo::after {
+    content: '🍽️';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    animation: float 3s ease-in-out infinite;
 }
 
 .logo-link {
     color: white;
     text-decoration: none;
-    transition: var(--transition-fast);
+    transition: var(--transition-elastic);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.logo-link:hover {
-    color: #fff3e6;
-    transform: translateY(-1px);
-}
-
-.desktop-nav {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    transition: var(--transition-fast);
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
+    gap: var(--space-3);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-xl);
     position: relative;
     overflow: hidden;
 }
 
-.nav-link::before {
+.logo-link::before {
     content: '';
     position: absolute;
     top: 0;
@@ -130,40 +398,161 @@ nav:hover {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.1);
-    transition: var(--transition);
+    transition: left 0.5s ease;
+    border-radius: var(--radius-xl);
+}
+
+.logo-link:hover::before {
+    left: 100%;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.logo-link:hover {
+    transform: scale(1.05) rotate(-1deg);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.1);
+}
+
+/* Enhanced Desktop Navigation with Restaurant Sophistication */
+.desktop-nav {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+    position: relative;
+}
+
+.desktop-nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    right: -1rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%);
     z-index: -1;
 }
 
+/* Premium Navigation Links with Advanced Effects */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: var(--transition-premium);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+}
+
+/* Multi-layer hover effect */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
 .nav-link:hover::before {
-    left: 0;
+    left: 100%;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-gold), #ffffff, var(--accent-gold));
+    box-shadow: 0 0 10px var(--accent-gold);
 }
 
 .nav-link:hover {
     color: #fff3e6;
-    transform: translateY(-2px);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    text-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(255, 215, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Premium Navigation Button with Glass Morphism */
 .nav-button {
     color: white;
     text-decoration: none;
-    transition: var(--transition-fast);
-    font-size: 1rem;
-    font-weight: 500;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition-premium);
+    font-size: 0.95rem;
+    font-weight: var(--font-weight-semibold);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: var(--glass-bg);
     cursor: pointer;
-    padding: 0.5rem 1.5rem;
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-2xl);
+    backdrop-filter: var(--backdrop-blur);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+}
+
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--shimmer-effect);
+    transition: left 0.8s ease;
+}
+
+.nav-button:hover::before {
+    left: 100%;
 }
 
 .nav-button:hover {
-    color: var(--primary-orange);
-    background-color: white;
-    border-color: white;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    color: var(--primary-orange-dark);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--accent-gold);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        var(--shadow-xl),
+        0 0 30px rgba(255, 215, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: var(--shadow-lg);
 }
 
 
@@ -177,25 +566,45 @@ nav:hover {
 
 
 
-/** FOOTER STYLING - Modern and elegant */
+/** FOOTER STYLING - Enhanced Restaurant-Quality Design with Creative Elements */
 .footer {
-    background: linear-gradient(135deg, var(--text-primary) 0%, #1a202c 100%);
+    background: var(--bg-gradient-premium);
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease infinite;
     color: white;
-    padding: 3rem 0 2rem;
+    padding: var(--space-12) 0 var(--space-8);
     text-align: center;
-    margin-top: 4rem;
+    margin-top: var(--space-16);
     position: relative;
     overflow: hidden;
+    box-shadow: 
+        var(--shadow-dramatic),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Premium overlay effects */
 .footer::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: var(--primary-orange-gradient);
+    height: 4px;
+    background: var(--accent-gold-gradient);
+    box-shadow: 0 0 20px var(--accent-gold);
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .footer-content {
@@ -204,46 +613,90 @@ nav:hover {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--space-8);
+    position: relative;
+    z-index: 1;
 }
 
+.footer p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-6);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: var(--font-weight-medium);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Footer Links with Restaurant Elegance */
 .footer-links {
-    margin-top: 1.5rem;
+    margin-top: var(--space-6);
     display: flex;
-    gap: 2rem;
+    gap: var(--space-8);
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .footer-link {
-    color: #cbd5e1;
+    color: #e2e8f0;
     text-decoration: none;
-    transition: var(--transition-fast);
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius-md);
+    transition: var(--transition-premium);
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-xl);
     position: relative;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+}
+
+.footer-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--glass-bg);
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
 }
 
 .footer-link::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 50%;
     width: 0;
-    height: 2px;
-    background: var(--primary-orange);
-    transition: var(--transition-fast);
+    height: 3px;
+    background: var(--accent-gold-gradient);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--accent-gold);
+}
+
+.footer-link:hover::before {
+    opacity: 1;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+    box-shadow: 0 0 20px var(--accent-gold);
 }
 
 .footer-link:hover {
     color: white;
-    transform: translateY(-2px);
-}
-
-.footer-link:hover::after {
-    width: 80%;
+    transform: translateY(-3px) scale(1.05);
+    border-color: rgba(255, 215, 0, 0.3);
+    text-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(255, 215, 0, 0.5);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 
@@ -1041,11 +1494,14 @@ nav:hover {
 
 
 
-/**HOME PAGE - Stunning hero and modern layout */
+/**HOME PAGE - Enhanced Restaurant-Quality Hero with Creative Flair */
 .home-page {
     padding: 0;
     margin: 0;
     background: var(--background-secondary);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 102, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(230, 57, 70, 0.03) 0%, transparent 50%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -1054,17 +1510,22 @@ nav:hover {
     overflow-x: hidden;
 }
 
+/* Premium Hero Section with Advanced Visual Effects */
 .home-hero-section {
-    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-dark) 50%, #d84315 100%);
+    background: var(--bg-gradient-sunset);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
     color: white;
     text-align: center;
-    padding: 8rem 2rem;
+    padding: var(--space-32) var(--space-8);
     width: 100%;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-dramatic);
 }
 
+/* Multi-layer background effects */
 .home-hero-section::before {
     content: '';
     position: absolute;
@@ -1072,54 +1533,89 @@ nav:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-    animation: float 20s linear infinite;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><path d="M60,60 L65,55 L70,60 L65,65 Z" fill="rgba(255,255,255,0.05)"/></svg>'),
+        radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: float 25s linear infinite;
+    pointer-events: none;
+}
+
+.home-hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, transparent 0%, var(--background-secondary) 100%);
+    pointer-events: none;
 }
 
 .home-hero-content {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
+/* Enhanced Hero Title with Restaurant Elegance */
 .home-hero-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: var(--font-weight-black);
+    margin-bottom: var(--space-6);
     letter-spacing: -0.03em;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.3);
     line-height: 1.1;
-    animation: slideInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+    animation: fadeInScale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+    background: linear-gradient(135deg, #ffffff 0%, #ffe55c 50%, #ffffff 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInScale 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both, 
+               gradient-shift 4s ease infinite;
 }
 
 .home-hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    font-weight: 400;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    margin-bottom: var(--space-12);
+    line-height: 1.7;
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2);
+    font-weight: var(--font-weight-normal);
     opacity: 0.95;
-    animation: slideInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+    animation: slideInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Premium Call-to-Action Button */
 .home-explore-button {
-    padding: 1.25rem 3rem;
-    font-size: 1.25rem;
-    background: white;
-    color: var(--primary-orange);
-    border: none;
-    border-radius: var(--radius-xl);
+    padding: var(--space-5) var(--space-12);
+    font-size: 1.3rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-2xl);
     cursor: pointer;
-    transition: var(--transition);
-    box-shadow: var(--shadow-lg);
-    font-weight: 700;
+    transition: var(--transition-premium);
+    box-shadow: 
+        var(--shadow-xl),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    font-weight: var(--font-weight-bold);
     font-family: 'Inter', sans-serif;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     position: relative;
     overflow: hidden;
-    animation: slideInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+    animation: bounce 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.9s both;
 }
 
 .home-explore-button::before {
@@ -1129,141 +1625,278 @@ nav:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.1), transparent);
-    transition: var(--transition);
+    background: var(--shimmer-effect);
+    transition: left 0.8s ease;
+}
+
+.home-explore-button::after {
+    content: '🍽️';
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .home-explore-button:hover::before {
     left: 100%;
 }
 
-.home-explore-button:hover {
-    background: #fafafa;
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: var(--shadow-xl);
+.home-explore-button:hover::after {
+    transform: translateY(-50%) rotate(10deg) scale(1.2);
 }
 
+.home-explore-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-gold);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 40px var(--accent-gold),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.home-explore-button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Enhanced Featured Categories Section */
 .home-featured-categories {
-    padding: 6rem 2rem;
+    padding: var(--space-24) var(--space-8);
     text-align: center;
     width: 100%;
     max-width: 1400px;
     box-sizing: border-box;
+    position: relative;
 }
 
+.home-featured-categories::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--accent-gold-gradient);
+    border-radius: 2px;
+    box-shadow: 0 0 20px var(--accent-gold);
+}
+
+/* Premium Section Title */
 .home-section-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: var(--font-weight-black);
     color: var(--text-primary);
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-12);
     letter-spacing: -0.02em;
     position: relative;
     display: inline-block;
+    text-transform: capitalize;
+}
+
+.home-section-title::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--bg-gradient-gold);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 .home-section-title::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: var(--primary-orange-gradient);
-    border-radius: 2px;
+    width: 80px;
+    height: 5px;
+    background: var(--accent-gold-gradient);
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--accent-gold);
 }
 
+/* Enhanced Category Carousel */
 .home-category-carousel {
     display: flex;
     overflow-x: auto;
-    padding: 1rem 0 2rem;
+    padding: var(--space-4) 0 var(--space-8);
     scroll-snap-type: x mandatory;
-    gap: 2rem;
+    gap: var(--space-8);
     scrollbar-width: thin;
     scrollbar-color: var(--primary-orange-light) var(--background-tertiary);
+    position: relative;
+}
+
+.home-category-carousel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(90deg, var(--background-secondary) 0%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.home-category-carousel::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(270deg, var(--background-secondary) 0%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
 }
 
 .home-category-carousel::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
 }
 
 .home-category-carousel::-webkit-scrollbar-track {
     background: var(--background-tertiary);
     border-radius: 10px;
+    margin: 0 50px;
 }
 
 .home-category-carousel::-webkit-scrollbar-thumb {
     background: var(--primary-orange-gradient);
     border-radius: 10px;
-    border: 2px solid var(--background-tertiary);
+    box-shadow: 0 0 10px var(--primary-orange);
 }
 
 .home-category-carousel::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-orange);
+    background: var(--secondary-red-gradient);
+    box-shadow: 0 0 15px var(--secondary-red);
 }
 
+/* Enhanced Category Cards with Restaurant Elegance */
 .home-category-card {
-    flex: 0 0 320px;
-    background: var(--background-primary);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    padding: 2.5rem 2rem;
+    flex: 0 0 350px;
+    background: var(--background-card);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-10) var(--space-8);
     text-align: center;
-    transition: var(--transition);
+    transition: var(--transition-premium);
     cursor: pointer;
     scroll-snap-align: start;
-    border: 1px solid var(--border-light);
+    border: 1px solid rgba(255, 102, 0, 0.1);
     position: relative;
     overflow: hidden;
+    transform-style: preserve-3d;
 }
 
+/* Multi-layer card effects */
 .home-category-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--primary-orange-gradient);
+    height: 5px;
+    background: var(--accent-gold-gradient);
     transform: scaleX(0);
-    transition: var(--transition);
+    transition: var(--transition-premium);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 0 15px var(--accent-gold);
+}
+
+.home-category-card::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-gold);
+    border-radius: 50%;
+    opacity: 0;
+    transition: var(--transition-premium);
+    box-shadow: 0 0 10px var(--accent-gold);
 }
 
 .home-category-card:hover::before {
     transform: scaleX(1);
 }
 
-.home-category-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl);
-    border-color: rgba(255, 102, 0, 0.2);
+.home-category-card:hover::after {
+    opacity: 1;
+    animation: pulse 2s ease-in-out infinite;
 }
 
+.home-category-card:hover {
+    transform: translateY(-12px) rotateY(2deg) rotateX(2deg);
+    box-shadow: 
+        var(--shadow-dramatic),
+        0 0 40px rgba(255, 102, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.4);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+/* Restaurant-Quality Card Content */
 .home-category-name {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
     letter-spacing: -0.01em;
+    position: relative;
+    text-transform: capitalize;
+}
+
+.home-category-name::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--primary-orange-gradient);
+    border-radius: 2px;
+    transition: var(--transition-premium);
+}
+
+.home-category-card:hover .home-category-name::after {
+    width: 60px;
+    box-shadow: 0 0 10px var(--primary-orange);
 }
 
 .home-category-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    font-weight: 400;
+    line-height: 1.7;
+    font-weight: var(--font-weight-normal);
+    margin-top: var(--space-4);
 }
 
+/* Enhanced Call-to-Action Section */
 .home-call-to-action {
-    background: linear-gradient(135deg, var(--background-tertiary) 0%, #e2e8f0 100%);
-    padding: 6rem 2rem;
+    background: var(--bg-gradient-elegant);
+    background-size: 200% 200%;
+    animation: gradient-shift 20s ease infinite;
+    padding: var(--space-24) var(--space-8);
     text-align: center;
     width: 100%;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    margin-top: var(--space-16);
 }
 
 .home-call-to-action::before {
@@ -1272,38 +1905,71 @@ nav:hover {
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: var(--primary-orange-gradient);
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
+/* Enhanced CTA Content with Restaurant Sophistication */
 .home-cta-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .home-cta-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 2.75rem;
-    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: var(--font-weight-black);
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.home-cta-title::before {
+    content: '✨';
+    position: absolute;
+    left: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.home-cta-title::after {
+    content: '✨';
+    position: absolute;
+    right: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite 1.5s;
 }
 
 .home-cta-text {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 3rem;
-    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: var(--space-12);
+    font-weight: var(--font-weight-normal);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-12);
 }
 
+/* Premium Order Now Button */
 .home-order-now-button {
-    padding: 1.25rem 3rem;
-    font-size: 1.25rem;
+    padding: var(--space-5) var(--space-12);
+    font-size: 1.3rem;
     background: var(--primary-orange-gradient);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
     color: white;
     border: none;
     border-radius: var(--radius-xl);
@@ -1776,7 +2442,7 @@ nav:hover {
 
 .menu-item-name {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
     color: var(--text-primary);
@@ -1974,7 +2640,7 @@ nav:hover {
 
 .menu-item-name {
     font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 0;

@@ -2,7 +2,7 @@ import axios from "axios";
 import type { LoginData, RegistrationData } from "../types/auth";
 import type { AddToCartRequest } from "../types/cart";
 import type { CreateReviewRequest } from "../types/review";
-import type { UpdateOrderStatusRequest } from "../types/order";
+import type { OrderDetailsForPayment, UpdateOrderStatusRequest } from "../types/order";
 
 export default class ApiService {
   static BASE_URL = "http://localhost:8090/api/v1";
@@ -105,7 +105,6 @@ export default class ApiService {
   /** menu management section */
   static async getAllCategories() {
     const res = await axios.get(`${this.BASE_URL}/categories/all`, {
-      headers: this.getHeader(),
     });
     return res.data;
   }
@@ -252,7 +251,7 @@ export default class ApiService {
     return resp.data;
   }
 
-  static async initiateDelivery(body) {
+  static async initiateDelivery(body: any) {
     const resp = await axios.post(
       `${this.BASE_URL}/orders/initiate-delivery`,
       body,
@@ -269,4 +268,38 @@ export default class ApiService {
     });
     return resp.data;
   }
+
+  /**PAYMENT SESSION */
+  
+      //funtion to create payment intent
+      static async proceedForPayment(body: OrderDetailsForPayment) {
+  
+  
+          const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
+              headers: this.getHeader()
+          });
+          return resp.data; //return the resp containg the stripe transaction id for this transaction
+      }
+  
+      //TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
+      static async updateOrderPayment(body: any) {
+          const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
+              headers: this.getHeader()
+          });
+          return resp.data;
+      }
+  
+      static async getAllPayments() {
+          const resp = await axios.get(`${this.BASE_URL}/payments/all`, {
+              headers: this.getHeader()
+          });
+          return resp.data;
+      }
+  
+      static async getAPaymentById(paymentId: string) {
+          const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
+              headers: this.getHeader()
+          });
+          return resp.data;
+      }
 }

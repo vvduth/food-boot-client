@@ -10,6 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import ApiService from "../../services/ApiService";
 import { useError } from "../common/ErrorDisplay";
+import { PaymentStatus } from "../../types/payment";
 
 const stripeInstance = loadStripe(
   "pk_test_51KPOjRCpGAJrQNJzKUGOtQxEmXbFQfrx7iLV0O1awlJoODJpqYSP7Qznx5Zr5gDLw1FrBpUyf2XomBrA9lO6bT8H00EvT3Go2x"
@@ -32,7 +33,53 @@ const PaymentForm = ({ amount, orderId, onSuccess }: {
     }
     setLoading(true);
     try {
-        
+
+        // step1: initialize payment intent i.e generate transaction id from backend
+        const body: OrderDetailsForPayment = {
+            orderId: orderId,
+            amount: amount
+        }
+        const paymentInitializeResponse = await ApiService.proceedForPayment(body);
+
+        if (paymentInitializeResponse.statusCode !== 200) {
+            throw new Error(paymentInitializeResponse.message || "Failed to initiate payment");
+        }
+
+        const uniqueTransactionId = paymentInitializeResponse.data;
+
+        // Step 2: Confirm the payment with Stripe
+        const { error: stripeError, paymentIntent } = await stripe.confirmCardPayment(
+            uniqueTransactionId,
+            {
+                payment_method: {
+                    card: elements.getElement(CardElement)!,
+                    billing_details: {
+                        // add any addititonla billing details if needed
+                    }
+                },
+            })
+        if (stripeError) {
+            throw stripeError;
+        }
+        if (paymentIntent.status === 'succeeded') {
+            console.log('Payment successful:', paymentIntent);
+            const res = await ApiService.updateOrderPayment({
+                orderId: orderId,
+                transactionId: paymentIntent.id,
+                success: true,
+                amount: amount
+            })
+            onSuccess(paymentIntent);
+        } else {
+            const res = await ApiService.updateOrderPayment({
+                orderId: orderId,
+                transactionId: paymentIntent.id,
+                success: false,
+                amount: amount
+            })
+
+        }
+
     } catch (error:any) {
         console.log("Payment error:", error);
         showError(error.message)
@@ -42,7 +89,17 @@ const PaymentForm = ({ amount, orderId, onSuccess }: {
   }
 
   return (
-    <></>
+    <form onSubmit={handleSubmit}
+     className="payment-form"
+    >
+        <ErrorDisplay />
+        <div className="form-group">
+            <CardElement />
+        </div>
+        <button type="submit" disabled={!stripe || loading} className="pay-button">
+            {loading ? "Processing..." : `Pay €${amount}`}
+        </button>
+    </form>
   )
 };
 
