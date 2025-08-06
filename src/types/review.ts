@@ -3,9 +3,9 @@
  * Used for customer reviews of menu items and orders
  */
 export interface Review {
-    id?: number;
-    menuId?: number;
-    orderId?: number;
+    id?: string;
+    menuId?: string;
+    orderId?: string;
     userName?: string;
     rating: number; // Required field, 1-10 range
     comment?: string; // Optional, max 500 characters

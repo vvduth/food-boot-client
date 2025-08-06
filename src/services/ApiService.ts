@@ -2,6 +2,7 @@ import axios from "axios";
 import type { LoginData, RegistrationData } from "../types/auth";
 import type { AddToCartRequest } from "../types/cart";
 import type { CreateReviewRequest } from "../types/review";
+import type { UpdateOrderStatusRequest } from "../types/order";
 
 export default class ApiService {
   static BASE_URL = "http://localhost:8090/api/v1";
@@ -234,6 +235,36 @@ export default class ApiService {
 
   static async createReview(body: CreateReviewRequest) {
     const resp = await axios.post(`${this.BASE_URL}/reviews`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  // order section
+  static async placeOrder() {
+    const resp = await axios.post(
+      `${this.BASE_URL}/orders/checkout`,
+      {},
+      {
+        headers: this.getHeader(),
+      }
+    );
+    return resp.data;
+  }
+
+  static async initiateDelivery(body) {
+    const resp = await axios.post(
+      `${this.BASE_URL}/orders/initiate-delivery`,
+      body,
+      {
+        headers: this.getHeader(),
+      }
+    );
+    return resp.data;
+  }
+
+  static async updateOrderStatus(body: UpdateOrderStatusRequest) {
+    const resp = await axios.put(`${this.BASE_URL}/orders/update`, body, {
       headers: this.getHeader(),
     });
     return resp.data;

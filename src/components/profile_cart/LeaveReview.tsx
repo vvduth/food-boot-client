@@ -32,7 +32,7 @@ const LeaveReviewPage = () => {
       fetchMenu();
     } else {
       showError("Menu ID is required to leave a review.");
-      navigate("/profile/my-order-history");
+      navigate("/profile/my-orders-history");
     }
   }, [menuId]);
 

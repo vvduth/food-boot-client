@@ -5,7 +5,7 @@ import type { MenuItem } from "./menus";
 
 
 export interface CartItem {
-    id: number;
+    id: string;
     menu: MenuItem;
     quantity: number;
     pricePerUnit: number;

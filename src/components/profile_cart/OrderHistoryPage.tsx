@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useError } from "../common/ErrorDisplay";
 import ApiService from "../../services/ApiService";
-import type { EnhancedOrderDTO, OrderDTO, OrderItemDTO } from "../../types/order";
+import type { EnhancedOrderDTO, EnhancedOrderItemDTO, OrderDTO, OrderItemDTO } from "../../types/order";
 
 const OrderHistoryPage = () => {
   const navigate = useNavigate();
@@ -11,56 +11,54 @@ const OrderHistoryPage = () => {
   // Fix: Use EnhancedOrderDTO instead of the union type
   const [orders, setOrders] = useState<EnhancedOrderDTO[]>([]);
 
-  useEffect(() => {
-    const fetchOrderHistory = async () => {
-      try {
-        const response = await ApiService.getMyOrders();
-        if (response.statusCode === 200) {
-          const orderData = response.data as OrderDTO[];
-          
-          // Create enhanced orders array with proper typing
-          const enhancedOrders: EnhancedOrderDTO[] = [];
-          
-          for (const order of orderData) {
-            const enhancedItems = [];
-            
-            for (const item of order.orderItems) {
-              const itemResponse = await ApiService.getOrderItemById(item.id);
-              const orderItem = itemResponse.data as OrderItemDTO;
-
-              if (itemResponse.statusCode === 200) {
-                // Add hasReview property to create EnhancedOrderItemDTO
-                enhancedItems.push({
-                  ...item,
-                  hasReview: orderItem.menu.reviews.some(
-                    (review) => review.orderId === order.user.id
-                  ),
-                });
-              } else {
-                // Add hasReview as false for items that couldn't be enhanced
-                enhancedItems.push({
-                  ...item,
-                  hasReview: false,
-                });
+   useEffect(() => {
+          // Define an asynchronous function to fetch orders
+          const fetchOrders = async () => {
+              try {
+                  // Call the API service to get the current user's orders
+                  const response = await ApiService.getMyOrders();
+  
+                  // Check if the API call was successful (status code 200)
+                  if (response.statusCode === 200) {
+                      const enhancedOrders: EnhancedOrderDTO[] = [];
+                      // Iterate over each order to enhance its items
+                      const myOrdersResponse = response.data as OrderDTO[];
+                      for (const order of myOrdersResponse) {
+                          const enhancedItems: EnhancedOrderItemDTO[]  = [];
+                          // Iterate over each item within the current order
+                          for (const item of order.orderItems) {
+                              // Fetch details for each order item by its ID
+                              const itemResponse = await ApiService.getOrderItemById(item.id);
+  
+                              // If item details are successfully fetched
+                              if (itemResponse.statusCode === 200) {
+                                  const itemData = itemResponse.data as OrderItemDTO;
+                                  enhancedItems.push({
+                                      ...item,
+                                      // Determine if the item has a review associated with the current order
+                                      hasReview: itemData.menu.reviews.some(
+                                          review => review.orderId === Number(order.id)
+                                      )
+                                  });
+                              } else {
+                                  // Return the original item if fetching details failed
+                                  enhancedItems.push(item);
+                              }
+                          }
+                          // Add the order with its newly enhanced items to the list
+                          enhancedOrders.push({ ...order, orderItems: enhancedItems });
+                      }
+                      // Update the state with the enhanced orders
+                      setOrders(enhancedOrders);
+                  }
+              } catch (error:any) {
+                  // Catch and display any errors that occur during the fetch operation
+                  showError(error.response?.data?.message || error.message);
               }
-            }
-            
-            // Create enhanced order with enhanced items
-            enhancedOrders.push({
-              ...order,
-              orderItems: enhancedItems,
-            });
-          }
-          
-          setOrders(enhancedOrders);
-        }
-      } catch (error: any) {
-        showError(error.response?.data?.message || error.message);
-      }
-    };
-    
-    fetchOrderHistory();
-  }, []); 
+          };
+  
+          fetchOrders();
+      }, []);
 
   // Format date helper function
   const formatDate = (dateString: string) => {

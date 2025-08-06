@@ -27,7 +27,7 @@ const ProfilePage = () => {
     navigate("/update");
   };
   const navigateToOrderHistory = () => {
-    navigate("/my-order-history");
+    navigate("/my-orders-history");
   };
 
   if (user) {
