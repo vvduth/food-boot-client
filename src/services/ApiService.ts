@@ -109,6 +109,13 @@ export default class ApiService {
     return res.data;
   }
 
+  static async deleteCategory(categoryId: string) {
+    const resp = await axios.delete(`${this.BASE_URL}/categories/${categoryId}`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
   static async getAllMenuByCategoryId(categoryId: string) {
     const resp = await axios.get(`${this.BASE_URL}/menus`, {
       params: {

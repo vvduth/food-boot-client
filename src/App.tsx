@@ -15,6 +15,8 @@ import { AdminRoute, CustomerRoute } from "./services/Guard";
 import LeaveReviewPage from "./components/profile_cart/LeaveReview";
 import CartPage from "./components/profile_cart/CartPage";
 import ProcessPaymentPage from "./components/payment/ProcessPaymentPage";
+import AdminLayout from "./components/admin/navbar/AdminLayout";
+import AdminCategoryPage from "./components/admin/AdminCategoryPage";
 function App() {
   return (
     <BrowserRouter>
@@ -35,11 +37,31 @@ function App() {
             path="/profile"
             element={<CustomerRoute element={ProfilePage} />}
           />
-          <Route path="/update" element={<CustomerRoute element={UpdateProfilePage} />} />
-          <Route path="/my-orders-history" element={<CustomerRoute element={OrderHistoryPage} />} />
-          <Route path="/leave-review" element={<CustomerRoute element={LeaveReviewPage} />} />
+          <Route
+            path="/update"
+            element={<CustomerRoute element={UpdateProfilePage} />}
+          />
+          <Route
+            path="/my-orders-history"
+            element={<CustomerRoute element={OrderHistoryPage} />}
+          />
+          <Route
+            path="/leave-review"
+            element={<CustomerRoute element={LeaveReviewPage} />}
+          />
           <Route path="/cart" element={<CustomerRoute element={CartPage} />} />
-            <Route path="/pay" element={<CustomerRoute element={ProcessPaymentPage} />} />
+          <Route
+            path="/pay"
+            element={<CustomerRoute element={ProcessPaymentPage} />}
+          />
+
+          {/* admin  */}
+          <Route path="/admin" element={<AdminRoute element={AdminLayout} />} >
+            <Route path="categories" element={<AdminRoute element={AdminCategoryPage} />} />
+            <Route path="menu-items" element={<AdminRoute element={() =>  <></>} />} />
+            <Route path="orders" element={<AdminRoute element={() => <></>} />} />
+            <Route path="payments" element={<AdminRoute element={() => <></>} />} />
+          </Route>
 
           <Route path="*" element={<Navigate to="/home" />} />
         </Routes>
