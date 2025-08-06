@@ -17,6 +17,7 @@ import CartPage from "./components/profile_cart/CartPage";
 import ProcessPaymentPage from "./components/payment/ProcessPaymentPage";
 import AdminLayout from "./components/admin/navbar/AdminLayout";
 import AdminCategoryPage from "./components/admin/AdminCategoryPage";
+import AdminCategoryFormPage from "./components/admin/AdminCategoryFormPage";
 function App() {
   return (
     <BrowserRouter>
@@ -58,6 +59,8 @@ function App() {
           {/* admin  */}
           <Route path="/admin" element={<AdminRoute element={AdminLayout} />} >
             <Route path="categories" element={<AdminRoute element={AdminCategoryPage} />} />
+            <Route path="categories/new" element={<AdminRoute element={AdminCategoryFormPage} />} />
+
             <Route path="menu-items" element={<AdminRoute element={() =>  <></>} />} />
             <Route path="orders" element={<AdminRoute element={() => <></>} />} />
             <Route path="payments" element={<AdminRoute element={() => <></>} />} />

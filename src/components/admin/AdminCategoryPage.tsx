@@ -80,13 +80,13 @@ const AdminCategoryPage = () => {
                 <td className="actions">
                   <button
                     className="edit-btn"
-                    onClick={() => handleEditCategory(category.id)}
+                    onClick={() => handleEditCategory(category.id!)}
                   >
                     <i className="fas fa-edit"></i> Edit
                   </button>
                   <button
                     className="delete-btn"
-                    onClick={() => handleDeleteCategory(category.id)}
+                    onClick={() => handleDeleteCategory(category.id!)}
                   >
                     <i className="fas fa-trash"></i> Delete
                   </button>
