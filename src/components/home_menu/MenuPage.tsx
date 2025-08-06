@@ -33,7 +33,7 @@ const MenuPage = () => {
       }
     };
     fetchMenus();
-  }, [location.search, showError]);
+  }, [location.search]);
 
   const handleSearch = async () => {
     try {
