@@ -16,10 +16,10 @@ import LeaveReviewPage from "./components/profile_cart/LeaveReview";
 import CartPage from "./components/profile_cart/CartPage";
 import ProcessPaymentPage from "./components/payment/ProcessPaymentPage";
 import AdminLayout from "./components/admin/navbar/AdminLayout";
-import AdminCategoryPage from "./components/admin/AdminCategoryPage";
-import AdminCategoryFormPage from "./components/admin/AdminCategoryFormPage";
-import AdminMenuPage from "./components/admin/AdminMenuPage";
-import AdminMenuFormPage from "./components/admin/AdminMenuFormPage";
+import AdminCategoryPage from "./components/admin/sidebar/AdminCategoryPage";
+import AdminCategoryFormPage from "./components/admin/sidebar/AdminCategoryFormPage";
+import AdminMenuPage from "./components/admin/sidebar/AdminMenuPage";
+import AdminMenuFormPage from "./components/admin/sidebar/AdminMenuFormPage";
 function App() {
   return (
     <BrowserRouter>

@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import ApiService from "../../services/ApiService";
-import { useError } from "../common/ErrorDisplay";
-import type { Category } from "../../types/categories";
+import ApiService from "../../../services/ApiService";
+import { useError } from "../../common/ErrorDisplay";
+import type { Category } from "../../../types/categories";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 const AdminCategoryFormPage = () => {

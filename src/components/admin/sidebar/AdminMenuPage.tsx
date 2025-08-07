@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from "react";
-import ApiService from "../../services/ApiService";
-import { useError } from "../common/ErrorDisplay";
+import ApiService from "../../../services/ApiService";
+import { useError } from "../../common/ErrorDisplay";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import type { MenuItem } from "../../types/menus";
+import type { MenuItem } from "../../../types/menus";
 const AdminMenuPage = () => {
 
     const [menus, setMenus] = useState<MenuItem[]>([]);

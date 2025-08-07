@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useError } from "../common/ErrorDisplay";
-import type { CreateMenuItemRequest, MenuItem, UpdateMenuItemRequest } from "../../types/menus";
-import type { Category } from "../../types/categories";
-import ApiService from "../../services/ApiService";
+import { useError } from "../../common/ErrorDisplay";
+import type { CreateMenuItemRequest, MenuItem, UpdateMenuItemRequest } from "../../../types/menus";
+import type { Category } from "../../../types/categories";
+import ApiService from "../../../services/ApiService";
 
 // Define a proper form state type that combines both create and update scenarios
 interface MenuFormState {
