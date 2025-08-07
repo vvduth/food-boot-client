@@ -18,6 +18,8 @@ import ProcessPaymentPage from "./components/payment/ProcessPaymentPage";
 import AdminLayout from "./components/admin/navbar/AdminLayout";
 import AdminCategoryPage from "./components/admin/AdminCategoryPage";
 import AdminCategoryFormPage from "./components/admin/AdminCategoryFormPage";
+import AdminMenuPage from "./components/admin/AdminMenuPage";
+import AdminMenuFormPage from "./components/admin/AdminMenuFormPage";
 function App() {
   return (
     <BrowserRouter>
@@ -60,8 +62,12 @@ function App() {
           <Route path="/admin" element={<AdminRoute element={AdminLayout} />} >
             <Route path="categories" element={<AdminRoute element={AdminCategoryPage} />} />
             <Route path="categories/new" element={<AdminRoute element={AdminCategoryFormPage} />} />
+            <Route path="categories/edit/:id" element={<AdminRoute element={AdminCategoryFormPage} />} />
 
-            <Route path="menu-items" element={<AdminRoute element={() =>  <></>} />} />
+
+            <Route path="menu-items" element={<AdminRoute element={AdminMenuPage} />} />
+            <Route path="menu-items/new" element={<AdminRoute element={AdminMenuFormPage} />} />
+            <Route path="menu-items/edit/:id" element={<AdminRoute element={AdminMenuFormPage} />} />
             <Route path="orders" element={<AdminRoute element={() => <></>} />} />
             <Route path="payments" element={<AdminRoute element={() => <></>} />} />
           </Route>

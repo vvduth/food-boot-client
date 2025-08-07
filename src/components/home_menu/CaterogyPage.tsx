@@ -42,7 +42,7 @@ const CaterogyPage = () => {
           <div
             key={category.id}
             className="home-category-card"
-            onClick={() => handleCategoryClick(category.id)}
+            onClick={() => handleCategoryClick(category.id!)}
           >
             <h2 className="category-name">{category.name}</h2>
             <p className="category-description">{category.description}</p>

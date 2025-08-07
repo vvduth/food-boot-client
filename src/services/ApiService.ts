@@ -1,8 +1,12 @@
+
 import axios from "axios";
 import type { LoginData, RegistrationData } from "../types/auth";
 import type { AddToCartRequest } from "../types/cart";
 import type { CreateReviewRequest } from "../types/review";
-import type { OrderDetailsForPayment, UpdateOrderStatusRequest } from "../types/order";
+import type {
+  OrderDetailsForPayment,
+  UpdateOrderStatusRequest,
+} from "../types/order";
 
 export default class ApiService {
   static BASE_URL = "http://localhost:8090/api/v1";
@@ -104,36 +108,35 @@ export default class ApiService {
 
   /** menu management section */
   static async getAllCategories() {
-    const res = await axios.get(`${this.BASE_URL}/categories/all`, {
-    });
+    const res = await axios.get(`${this.BASE_URL}/categories/all`, {});
     return res.data;
   }
 
   static async getCategoryById(id: string) {
-          const resp = await axios.get(`${this.BASE_URL}/categories/${id}`);
-          return resp.data;
-      }
-  
-      static async createCategory(body: any) {
-          const resp = await axios.post(`${this.BASE_URL}/categories`, body, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
-  
-      static async updateCategory(body: any) {
-          const resp = await axios.put(`${this.BASE_URL}/categories`, body, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
-  
-      static async deleteCategory(id: string) {
-          const resp = await axios.delete(`${this.BASE_URL}/categories/${id}`, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
+    const resp = await axios.get(`${this.BASE_URL}/categories/${id}`);
+    return resp.data;
+  }
+
+  static async createCategory(body: any) {
+    const resp = await axios.post(`${this.BASE_URL}/categories`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async updateCategory(body: any) {
+    const resp = await axios.put(`${this.BASE_URL}/categories`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async deleteCategory(id: string) {
+    const resp = await axios.delete(`${this.BASE_URL}/categories/${id}`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
 
   static async getAllMenuByCategoryId(categoryId: string) {
     const resp = await axios.get(`${this.BASE_URL}/menus`, {
@@ -160,6 +163,33 @@ export default class ApiService {
 
   static async getMenuById(id: string) {
     const resp = await axios.get(`${this.BASE_URL}/menus/${id}`);
+    return resp.data;
+  }
+
+  static async createMenu(body: FormData) {
+    const resp = await axios.post(`${this.BASE_URL}/menus`, body, {
+      headers: {
+         ...this.getHeader(),
+        "Content-Type": "multipart/form-data",
+      }
+    });
+    return resp.data;
+  }
+
+  static async updateMenu(body: FormData) {
+    const resp = await axios.put(`${this.BASE_URL}/menus`, body, {
+      headers:{
+        ...this.getHeader(),
+        "Content-Type": "multipart/form-data",
+      }
+    });
+    return resp.data;
+  }
+
+  static async deleteMenu(id: string) {
+    const resp = await axios.delete(`${this.BASE_URL}/menus/${id}`, {
+      headers: this.getHeader(),
+    });
     return resp.data;
   }
 
@@ -296,36 +326,34 @@ export default class ApiService {
   }
 
   /**PAYMENT SESSION */
-  
-      //funtion to create payment intent
-      static async proceedForPayment(body: OrderDetailsForPayment) {
-  
-  
-          const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
-              headers: this.getHeader()
-          });
-          return resp.data; //return the resp containg the stripe transaction id for this transaction
-      }
-  
-      //TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
-      static async updateOrderPayment(body: any) {
-          const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
-  
-      static async getAllPayments() {
-          const resp = await axios.get(`${this.BASE_URL}/payments/all`, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
-  
-      static async getAPaymentById(paymentId: string) {
-          const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
-              headers: this.getHeader()
-          });
-          return resp.data;
-      }
+
+  //funtion to create payment intent
+  static async proceedForPayment(body: OrderDetailsForPayment) {
+    const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data; //return the resp containg the stripe transaction id for this transaction
+  }
+
+  //TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
+  static async updateOrderPayment(body: any) {
+    const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async getAllPayments() {
+    const resp = await axios.get(`${this.BASE_URL}/payments/all`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
+
+  static async getAPaymentById(paymentId: string) {
+    const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
+      headers: this.getHeader(),
+    });
+    return resp.data;
+  }
 }

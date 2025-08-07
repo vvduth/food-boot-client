@@ -6,9 +6,9 @@ export interface MenuItem {
     id: string;
     name: string;
     description: string;
-    price: number;
+    price: string;
     imageUrl: string;
-    categoryId: Category['id'];
+    categoryId: string; // Changed from Category['id'] to string to avoid potential undefined
     reviews: Review[];
 }
 
@@ -28,11 +28,11 @@ export interface Review {
 export interface CreateMenuItemRequest {
     name: string;
     description: string;
-    price: number;
-    imageUrl: string;
-    categoryId: number;
+    price: string;
+    imageFile: string | File| null;
+    categoryId: string;
 }
 
 export interface UpdateMenuItemRequest extends Partial<CreateMenuItemRequest> {
-    id: number;
+    id: string;
 }
