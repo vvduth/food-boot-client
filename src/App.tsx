@@ -20,6 +20,8 @@ import AdminCategoryPage from "./components/admin/sidebar/AdminCategoryPage";
 import AdminCategoryFormPage from "./components/admin/sidebar/AdminCategoryFormPage";
 import AdminMenuPage from "./components/admin/sidebar/AdminMenuPage";
 import AdminMenuFormPage from "./components/admin/sidebar/AdminMenuFormPage";
+import AdminOrdersPage from "./components/admin/sidebar/AdminOrdersPage";
+import AdminOrderDetailPage from "./components/admin/sidebar/AdminOrderDetailPage";
 function App() {
   return (
     <BrowserRouter>
@@ -68,7 +70,10 @@ function App() {
             <Route path="menu-items" element={<AdminRoute element={AdminMenuPage} />} />
             <Route path="menu-items/new" element={<AdminRoute element={AdminMenuFormPage} />} />
             <Route path="menu-items/edit/:id" element={<AdminRoute element={AdminMenuFormPage} />} />
-            <Route path="orders" element={<AdminRoute element={() => <></>} />} />
+
+            <Route path="orders" element={<AdminRoute element={AdminOrdersPage} />} />
+            <Route path="orders/:id" element={<AdminRoute element={AdminOrderDetailPage} />} />
+
             <Route path="payments" element={<AdminRoute element={() => <></>} />} />
           </Route>
 

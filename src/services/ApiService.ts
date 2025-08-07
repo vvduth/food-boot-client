@@ -247,7 +247,7 @@ export default class ApiService {
     return resp.data;
   }
 
-  static async getAllOrders(orderStatus: string, page = 0, size = 200) {
+  static async getAllOrders(orderStatus: string |null, page = 0, size = 200) {
     let url = `${this.BASE_URL}/orders/all`;
 
     if (orderStatus) {

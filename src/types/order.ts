@@ -114,6 +114,7 @@ export interface CreateOrderRequest {
  * Helper type for order status updates
  */
 export interface UpdateOrderStatusRequest {
+    id: string;
     orderStatus: OrderStatus;
 }
 

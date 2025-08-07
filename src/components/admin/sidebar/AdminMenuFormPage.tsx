@@ -109,7 +109,7 @@ const AdminMenuFormPage = () => {
     if (id) {
       fetchMenu();
     }
-  }, []);
+  }, [id]);
 
   const handleInputChange = (e: React.ChangeEvent<any>) => {
     const { name, value } = e.target;
