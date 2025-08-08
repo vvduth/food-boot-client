@@ -119,7 +119,7 @@ const CartPage = () => {
             <div className="item-details">
               <h3 className="item-name">{item.menu.name}</h3>
               <p className="item-description">{item.menu.description}</p>
-              <p className="item-price">${item.pricePerUnit.toFixed(2)} each</p>
+              <p className="item-price">€{item.pricePerUnit.toFixed(2)} each</p>
 
               <div className="quantity-controls">
                 <button
@@ -140,7 +140,7 @@ const CartPage = () => {
             </div>
 
             <div className="item-subtotal">
-              <p>${item.subTotal.toFixed(2)}</p>
+              <p>€{item.subTotal.toFixed(2)}</p>
               <button
                 onClick={() => handleRemoveItemFromCart(item.id)}
                 className="remove-btn"
@@ -155,12 +155,12 @@ const CartPage = () => {
       <div className="cart-summary">
         <div className="summary-row">
           <span>Subtotal:</span>
-          <span>${cart.totalAmount.toFixed(2)}</span>
+          <span>€{cart.totalAmount.toFixed(2)}</span>
         </div>
 
         <div className="summary-row total">
           <span>Total:</span>
-          <span>${cart.totalAmount.toFixed(2)}</span>
+          <span>€{cart.totalAmount.toFixed(2)}</span>
         </div>
 
         <button onClick={handleCheckout} className="checkout-btn">

@@ -104,7 +104,7 @@ const OrderHistoryPage = () => {
                 Status: <span className={`status-${order.orderStatus.toLowerCase()}`}>{order.orderStatus}</span>
               </span>
               <span className="order-total">
-                Total: ${order.totalAmount.toFixed(2)}
+                Total: €{order.totalAmount.toFixed(2)}
               </span>
             </div>
             <div className="order-items">
@@ -115,10 +115,10 @@ const OrderHistoryPage = () => {
                     <span className="item-name">{item.menu.name}</span>
                     <span className="item-quantity">Quantity: {item.quantity}</span>
                     <span className="item-price">
-                      Price: ${item.pricePerUnit.toFixed(2)}
+                      Price: €{item.pricePerUnit.toFixed(2)}
                     </span>
                     <span className="subtotal">
-                      Subtotal: ${item.subTotal.toFixed(2)}
+                      Subtotal: €{item.subTotal.toFixed(2)}
                     </span>
                     {order.orderStatus.toLowerCase() === 'delivered' && !item.hasReview && (
                       <button

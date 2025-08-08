@@ -76,7 +76,7 @@ const AdminPaymentsPage = () => {
                             <tr key={payment.id}>
                                 <td>#{payment.id}</td>
                                 <td>#{payment.orderId}</td>
-                                <td>${payment.amount?.toFixed(2)}</td>
+                                <td>€{payment.amount?.toFixed(2)}</td>
                                 <td>{new Date(payment.paymentDate).toLocaleDateString()}</td>
                                 <td>
                                     <span className={`status ${payment.paymentStatus!.toLowerCase()}`}>
@@ -102,7 +102,7 @@ const AdminPaymentsPage = () => {
                 <div className="stat-card">
                     <h3>Total Revenue</h3>
                     <p className="stat-value">
-                        ${payments.reduce((sum, p) => sum + (p.paymentStatus === PaymentStatus.COMPLETED ? (p.amount || 0) : 0), 0).toFixed(2)}
+                        €{payments.reduce((sum, p) => sum + (p.paymentStatus === PaymentStatus.COMPLETED ? (p.amount || 0) : 0), 0).toFixed(2)}
                     </p>
                     <p className="stat-period">All Time</p>
                 </div>

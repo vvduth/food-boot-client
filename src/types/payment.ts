@@ -1,5 +1,8 @@
 // Payment-related TypeScript types for the food delivery application
 
+import type { OrderDTO } from "./order";
+import type { UserDto } from "./user";
+
 /**
  * Payment status enumeration matching backend PaymentStatus enum
  */
@@ -55,10 +58,10 @@ export interface PaymentDTO {
     paymentDate: string;
     
     /** Associated order details - assuming OrderDTO exists */
-    order?: any; // TODO: Replace with proper OrderDTO type when available
+    order?: OrderDTO; // TODO: Replace with proper OrderDTO type when available
     
     /** User who made the payment - assuming UserDto exists */
-    user?: any; // TODO: Replace with proper UserDto type when available
+    user?: UserDto; // TODO: Replace with proper UserDto type when available
 }
 
 /**

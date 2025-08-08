@@ -87,7 +87,7 @@ const AdminOrderDetailPage = () => {
                         </div>
                         <div className="info-row">
                             <span className="label">Total Amount:</span>
-                            <span className="value">${order.totalAmount.toFixed(2)}</span>
+                            <span className="value">€{order.totalAmount.toFixed(2)}</span>
                         </div>
                     </div>
 

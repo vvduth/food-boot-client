@@ -350,7 +350,7 @@ export default class ApiService {
     return resp.data;
   }
 
-  static async getAPaymentById(paymentId: string) {
+  static async getPaymentById(paymentId: string) {
     const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
       headers: this.getHeader(),
     });
