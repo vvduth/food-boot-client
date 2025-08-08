@@ -24,6 +24,7 @@ import AdminOrdersPage from "./components/admin/sidebar/AdminOrdersPage";
 import AdminOrderDetailPage from "./components/admin/sidebar/AdminOrderDetailPage";
 import AdminPaymentsPage from "./components/admin/sidebar/AdminPaymentsPage";
 import AdminPaymentDetailsPage from "./components/admin/sidebar/AdminPaymentDetailsPage";
+import AdminDashBoardPage from "./components/admin/sidebar/AdminDashBoardPage";
 function App() {
   return (
     <BrowserRouter>
@@ -78,6 +79,8 @@ function App() {
 
             <Route path="payments" element={<AdminRoute element={AdminPaymentsPage} />} />
             <Route path="payments/:id" element={<AdminRoute element={AdminPaymentDetailsPage} />} />
+
+            <Route path="dashboard" element={<AdminRoute element={AdminDashBoardPage} />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/home" />} />

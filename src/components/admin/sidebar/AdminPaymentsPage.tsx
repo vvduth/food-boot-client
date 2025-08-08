@@ -2,8 +2,6 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import ApiService from "../../../services/ApiService";
 import { useError } from "../../common/ErrorDisplay";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import type { PaymentDTO } from '../../../types/payment';
 import { PaymentStatus } from '../../../types/payment';
