@@ -22,6 +22,7 @@ import AdminMenuPage from "./components/admin/sidebar/AdminMenuPage";
 import AdminMenuFormPage from "./components/admin/sidebar/AdminMenuFormPage";
 import AdminOrdersPage from "./components/admin/sidebar/AdminOrdersPage";
 import AdminOrderDetailPage from "./components/admin/sidebar/AdminOrderDetailPage";
+import AdminPaymentsPage from "./components/admin/sidebar/AdminPaymentsPage";
 function App() {
   return (
     <BrowserRouter>
@@ -74,7 +75,7 @@ function App() {
             <Route path="orders" element={<AdminRoute element={AdminOrdersPage} />} />
             <Route path="orders/:id" element={<AdminRoute element={AdminOrderDetailPage} />} />
 
-            <Route path="payments" element={<AdminRoute element={() => <></>} />} />
+            <Route path="payments" element={<AdminRoute element={AdminPaymentsPage} />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/home" />} />

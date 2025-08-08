@@ -5,10 +5,12 @@
  */
 export enum PaymentStatus {
     PENDING = 'PENDING',
-    SUCCESS = 'SUCCESS',
+    PROCESSING = 'PROCESSING',
+    COMPLETED = 'COMPLETED',
     FAILED = 'FAILED',
+    REFUNDED = 'REFUNDED',
     CANCELLED = 'CANCELLED',
-    REFUNDED = 'REFUNDED'
+    ALL = 'all'
 }
 
 /**
@@ -50,7 +52,7 @@ export interface PaymentDTO {
     success?: boolean;
     
     /** Date and time of the payment - using string to match backend LocalDateTime serialization */
-    paymentDate?: string;
+    paymentDate: string;
     
     /** Associated order details - assuming OrderDTO exists */
     order?: any; // TODO: Replace with proper OrderDTO type when available

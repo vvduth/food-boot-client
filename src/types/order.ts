@@ -2,6 +2,7 @@
 // Order-related TypeScript types matching Java backend DTOs
 
 import type { MenuItem } from "./menus";
+import type { PaymentStatus } from "./payment";
 import type { UserDto, UserProfile } from "./user";
 
 
@@ -17,17 +18,7 @@ export enum OrderStatus {
     FAILED = "FAILED",
 }
 
-/**
- * Payment status enumeration matching backend PaymentStatus enum
- */
-export enum PaymentStatus {
-    PENDING = "PENDING",
-    PROCESSING = "PROCESSING",
-    COMPLETED = "COMPLETED",
-    FAILED = "FAILED",
-    REFUNDED = "REFUNDED",
-    CANCELLED = "CANCELLED"
-}
+
 
 export enum PaymentGateway {
     STRIPE = "STRIPE",

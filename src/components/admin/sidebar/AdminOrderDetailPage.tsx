@@ -139,9 +139,9 @@ const AdminOrderDetailPage = () => {
                                             </div>
                                         </div>
                                     </td>
-                                    <td>${item.pricePerUnit.toFixed(2)}</td>
+                                    <td>€{item.pricePerUnit.toFixed(2)}</td>
                                     <td>{item.quantity}</td>
-                                    <td>${item.subTotal.toFixed(2)}</td>
+                                    <td>€{item.subTotal.toFixed(2)}</td>
                                 </tr>
                             ))}
                         </tbody>
