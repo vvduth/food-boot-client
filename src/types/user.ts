@@ -3,11 +3,7 @@
 /**
  * Role DTO interface matching backend RoleDTO structure
  */
-export interface RoleDTO {
-    id?: number;
-    name: string;
-    description?: string;
-}
+
 
 /**
  * Main User interface based on backend UserDto
@@ -22,7 +18,7 @@ export interface UserDto {
     password?: string; // Write-only field, typically not returned from API
     isActive: boolean;
     address?: string;
-    roles?: RoleDTO[];
+    roles?: string[];
     imageFile?: File; // TypeScript equivalent of MultipartFile
 }
 
@@ -37,6 +33,7 @@ export interface UserRegistrationData {
     password: string;
     address?: string;
     imageFile?: File;
+    roles?: string[];
 }
 
 /**
@@ -66,7 +63,7 @@ export interface UserProfile {
     profileUrl?: string;
     active: boolean;
     address?: string;
-    roles: RoleDTO[];
+    roles: string[];
 }
 
 /**

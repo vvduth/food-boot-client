@@ -7,6 +7,7 @@ import type {
   OrderDetailsForPayment,
   UpdateOrderStatusRequest,
 } from "../types/order";
+import type { UserRegistrationData } from "../types/user";
 
 export default class ApiService {
   static BASE_URL = "http://localhost:8090/api/v1";
@@ -68,7 +69,7 @@ export default class ApiService {
     };
   }
   // regiter user
-  static async registerUser(registrationData: RegistrationData) {
+  static async registerUser(registrationData: UserRegistrationData) {
     const resp = await axios.post(
       `${this.BASE_URL}/auth/register`,
       registrationData
