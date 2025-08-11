@@ -2,15 +2,18 @@ import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine, faList, faUtensils, faShoppingBag,
-    faCreditCard
+    faCreditCard, faClose
  } from '@fortawesome/free-solid-svg-icons'
 const AdminSidebar = () => {
     const location = useLocation()
+    
   return (
      <div className="admin-sidebar">
            <div className="sidebar-header">
              <h2>Pannel</h2>
            </div>
+
+
            
            <div className="sidebar-nav">
              <ul>

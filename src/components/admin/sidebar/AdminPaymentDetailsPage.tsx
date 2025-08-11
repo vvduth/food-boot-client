@@ -64,7 +64,7 @@ const AdminPaymentDetailsPage = () => {
             </div>
             <div className="info-row">
               <span className="label">Amount:</span>
-              <span className="value">${payment.amount!.toFixed(2)}</span>
+              <span className="value">€{payment.amount!.toFixed(2)}</span>
             </div>
             <div className="info-row">
               <span className="label">Payment Gateway:</span>

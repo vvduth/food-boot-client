@@ -181,7 +181,7 @@ const statusChartData = {
                     </div>
                     <div className="stat-card">
                         <h3>Total Revenue</h3>
-                        <p className="stat-value">${stats.totalRevenue.toFixed(2)}</p>
+                        <p className="stat-value">€{stats.totalRevenue.toFixed(2)}</p>
                         <p className="stat-change">All time</p>
                     </div>
                     <div className="stat-card">
@@ -259,7 +259,7 @@ const statusChartData = {
                                         <td>#{order.id}</td>
                                         <td>{new Date(order.orderDate).toLocaleDateString()}</td>
                                         <td>{order.user?.name || 'Guest'}</td>
-                                        <td>${order.totalAmount.toFixed(2)}</td>
+                                        <td>€{order.totalAmount.toFixed(2)}</td>
                                         <td>
                                             <span className={`status ${order.orderStatus.toLowerCase()}`}>
                                                 {order.orderStatus}
