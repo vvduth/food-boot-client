@@ -89,7 +89,7 @@ const MenuPage = () => {
               <div className="menu-item-content">
                 <h2 className="menu-item-name">{menu.name}</h2>
                 <p className="menu-item-description">{menu.description}</p>
-                <p className="menu-item-price">{menu.price.toFixed(2)} EUR</p>
+                <p className="menu-item-price">{Number(menu.price || 0).toFixed(2)} EUR</p>
               </div>
             </div>
           ))}

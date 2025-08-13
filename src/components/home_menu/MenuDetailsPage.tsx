@@ -104,7 +104,7 @@ const MenuDetailsPage = () => {
           <h1 className="menu-item-name">{menu.name}</h1>
           <p className="menu-item-description">{menu.description}</p>
           <div className="menu-item-price-rating">
-            <span className="price"> {menu.price.toFixed(2)}</span>
+            <span className="price"> {Number(menu.price || 0).toFixed(2)}</span>
             <div className="rating">
               <span className="rating-value">
                 {averageRating.toFixed(1)}

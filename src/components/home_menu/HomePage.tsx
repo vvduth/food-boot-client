@@ -56,7 +56,7 @@ const HomePage = () => {
             <div
               key={category.id}
               className="home-category-card"
-              onClick={() => menuCategoryClick(category.id)}
+              onClick={() => category.id && menuCategoryClick(category.id)}
             >
               <h3 className="home-category-name">{category.name}</h3>
               <p className="home-category-description">
