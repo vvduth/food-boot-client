@@ -10,7 +10,7 @@ import type {
 import type { UserRegistrationData } from "../types/user";
 
 export default class ApiService {
-  static BASE_URL = "http://localhost:8090/api/v1";
+  static BASE_URL = "http://54.157.147.12:8090/api/v1";
 
   static saveToken(token: string) {
     localStorage.setItem("token", token);
